@@ -17,7 +17,8 @@ exports.createTask = async (req, res) => {
   try {
     const task = new Task({ name, user: req.user.id });
     await task.save();
-    res.status(201).json(task);
+    const allTasks = await Task.find({ user: req.user.id });
+    res.status(201).json(allTasks);
   } catch (err) {
     res.status(500).json({ message: 'Server error' });
   }

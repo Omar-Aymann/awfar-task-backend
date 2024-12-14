@@ -5,7 +5,7 @@ const authRoutes = require('./routes/authRoutes');
 const taskRoutes = require('./routes/taskRoutes');
 
 const app = express();
-
+const jwt = require('jsonwebtoken');
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
